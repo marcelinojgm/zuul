@@ -39,7 +39,7 @@ public class CommandWords
     {
         return validCommands.containsKey(aString);
     }
-    
+
     /**
      * Print all valid commands to System.out
      */
@@ -49,9 +49,19 @@ public class CommandWords
         for ( String command : validCommands.keySet() ) {
             System.out.println( command + " " );
         }
-        
+
     }
-    
+
+    /**
+     * Return the object Option associated with a word.
+     * @param commandWord The word to look up (as a string).
+     * @return the object Option correspondng to the paramater commandWord, or the object Option.UNKNOWN
+     *         if it is not a valid command word
+     */
+    public Option getCommandWord(String commandWord)
+    {
+        return validCommands.get(commandWord);
+    }
 
 
 }
