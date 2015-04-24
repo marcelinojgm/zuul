@@ -47,7 +47,7 @@ public class CommandWords
     {
         String commands = "Los comandos son: \n";
         for ( String command : validCommands.keySet() ) {
-            System.out.println( command + " " );
+            System.out.print( command + " " );
         }
 
     }
@@ -58,10 +58,14 @@ public class CommandWords
      * @return the object Option correspondng to the paramater commandWord, or the object Option.UNKNOWN
      *         if it is not a valid command word
      */
-    public Option getCommandWord(String commandWord)
+    public static Option getCommandWord(String commandWord)
     {
-        return validCommands.get(commandWord);
+        Option command = validCommands.get(commandWord);
+        if (command == null)
+        { 
+            command = Option.UNKNOWN;
+        }
+        return command;
     }
-
 
 }

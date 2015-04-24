@@ -7,6 +7,17 @@
  */
 public enum Option
 {
-       GO, QUIT, HELP, LOOK, EAT, BACK, TAKE, DROP, OBJECT
+       GO, 
+       QUIT,
+       HELP, 
+       LOOK, 
+       EAT, 
+       BACK, 
+       TAKE, 
+       DROP, 
+       OBJECT,
+       UNKNOWN
        ;
+       
+       
 }
