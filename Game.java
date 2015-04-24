@@ -126,32 +126,32 @@ public class Game
             return false;
         }
 
-        String commandWord = command.getCommandWord();
-        if (commandWord.equals("ayuda")) {
+        Option commandWord = command.getCommandWord();
+        if (commandWord == Option.HELP) {
             printHelp();
         }
-        else if (commandWord.equals("ir")) {
+        else if (commandWord == Option.GO) {
             goRoom(command);
         }
-        else if (commandWord.equals("terminar")) {
+        else if (commandWord == Option.QUIT) {
             wantToQuit = quit(command);
         }
-        else if (commandWord.equals("examinar")){
+        else if (commandWord == Option.LOOK){
             player.look();
         }
-        else if (commandWord.equals("comer")){
+        else if (commandWord == Option.EAT){
             player.eat();
         }
-        else if (commandWord.equals("volver")){
+        else if (commandWord == Option.BACK){
             player.goBack();
         }
-        else if (commandWord.equals("coger")){
+        else if (commandWord == Option.TAKE){
             take(command);
         }
-        else if (commandWord.equals("soltar")){
+        else if (commandWord == Option.DROP){
             drop(command);
         }
-        else if(commandWord.equals("objetos")){
+        else if(commandWord == Option.OBJECT){
             player.showInventory();
         }
         return wantToQuit;
@@ -236,5 +236,6 @@ public class Game
             return true;  // signal that we want to quit
         }
     }
+  
 
 }
