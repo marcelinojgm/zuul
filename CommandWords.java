@@ -1,3 +1,4 @@
+import java.util.HashMap;
 /**
  * This class is part of the "World of Zuul" application. 
  * "World of Zuul" is a very simple, text based adventure game.  
@@ -9,19 +10,24 @@
  * @version 2011.07.31
  */
 
+
 public class CommandWords
 {
     // a constant array that holds all valid command words
-    private static final String[] validCommands = {
-            "ir", "terminar", "ayuda", "examinar", "comer", "volver", "coger", "soltar", "objetos"
-        };
+    private static final HashMap<String , Option> commands ;
 
     /**
      * Constructor - initialise the command words.
      */
     public CommandWords()
     {
-        // nothing to do at the moment...
+       Option[] options = Option.values();
+       
+       for(int i = 0; i < options.length; i++ )
+       {
+           commands.put(options[i].name(), options[i]);
+        }
+       
     }
 
     /**
@@ -50,4 +56,6 @@ public class CommandWords
         }
         System.out.println(commands);
     }
+    
+
 }
