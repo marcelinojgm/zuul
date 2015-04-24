@@ -10,24 +10,24 @@ import java.util.HashMap;
  * @version 2011.07.31
  */
 
-
 public class CommandWords
 {
     // a constant array that holds all valid command words
-    private static final HashMap<String , Option> commands ;
+    private static HashMap<String , Option> validCommands ;
 
     /**
      * Constructor - initialise the command words.
      */
     public CommandWords()
     {
-       Option[] options = Option.values();
-       
-       for(int i = 0; i < options.length; i++ )
-       {
-           commands.put(options[i].name(), options[i]);
+        Option[] options = Option.values();
+        validCommands = new HashMap<>();
+
+        for(int i = 0; i < options.length; i++ )
+        {
+            validCommands.put(options[i].name(), options[i]);
         }
-       
+
     }
 
     /**
@@ -37,25 +37,21 @@ public class CommandWords
      */
     public boolean isCommand(String aString)
     {
-        for(int i = 0; i < validCommands.length; i++) {
-            if(validCommands[i].equals(aString))
-                return true;
-        }
-        // if we get here, the string was not found in the commands
-        return false;
+        return validCommands.containsKey(aString);
     }
-
+    
     /**
      * Print all valid commands to System.out
      */
     public void showAll()
     {
         String commands = "Los comandos son: \n";
-        for(int i = 0; i < validCommands.length; i++){
-            commands = commands + validCommands[i] + " ";
+        for ( String command : validCommands.keySet() ) {
+            System.out.println( command + " " );
         }
-        System.out.println(commands);
+        
     }
     
+
 
 }
